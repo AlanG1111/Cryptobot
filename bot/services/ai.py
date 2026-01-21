@@ -36,7 +36,7 @@ def summarize_news(news: list[str]) -> list[str]:
         client = get_openai_client()
 
         response = client.chat.completions.create(
-            model="gpt-4.1-mini",
+            model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.2,
         )

@@ -28,7 +28,7 @@ def analyze_market_scenario(summaries: list[str]) -> dict:
         client = get_openai_client()
 
         response = client.chat.completions.create(
-            model="gpt-4.1-mini",
+            model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.1,
         )

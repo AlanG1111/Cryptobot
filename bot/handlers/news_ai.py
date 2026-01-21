@@ -14,7 +14,7 @@ from bot.services.full_analysis_ai import full_market_analysis
 router = Router()
 
 LAST_CALL = 0
-COOLDOWN = 60  # секунд
+COOLDOWN = 0  # секунд
 
 # 🧊 КЕШ
 CACHE = {
@@ -60,7 +60,7 @@ async def news_ai_handler(message: Message):
 
         # 🔥 ОДИН запрос в ИИ
         analysis = full_market_analysis(raw_news)
-
+        print(analysis)
         if not analysis or "error" in analysis:
             await message.answer("⚠️ ИИ временно недоступен, попробуй позже", reply_markup=refresh_kb)
             return
