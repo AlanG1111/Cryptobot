@@ -1,15 +1,12 @@
+import os
 from openai import OpenAI
 from dotenv import load_dotenv
-import os
 
-# Загружаем переменные из .env
+# Загружаем переменные окружения из .env
 load_dotenv()
 
-API_KEY = os.getenv("OPENAI_API_KEY")
-if not API_KEY:
-    raise ValueError("❌ OPENAI_API_KEY не найден в .env!")
-
+# Инициализация клиента OpenAI
 client = OpenAI(
-    api_key=API_KEY,
-    max_retries=0  # ❗ чтобы не было лишних повторов при 429
+    api_key=os.getenv("OPENAI_API_KEY"),  # ✅ берем ключ из .env
+    max_retries=0  # ❗ обязательно, чтобы не было 429
 )
